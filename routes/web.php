@@ -25,3 +25,12 @@ Route::get('/contact', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
+Route::get('/newprod', function () {
+    return view('new-product');
+});
+Route::get('/prodls', function () {
+    return view('product-list');
+});
+Route::get('/productedit', function () {
+    return view('product-edit');
+});
