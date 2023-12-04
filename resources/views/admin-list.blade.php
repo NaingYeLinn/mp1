@@ -53,7 +53,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link text-white" href="{{url('/prodls')}}">Product</a>
+            <a class="nav-link text-white" href="{{url('/newprod')}}">NewProduct</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -86,7 +86,7 @@
 
 
              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              @if(auth::check())
+             @if(auth::check())
           <li class="nav-item">
             <a class="nav-link text-white" href="{{url('logout')}}">logout</a>
           </li>
@@ -95,7 +95,6 @@
             <a class="nav-link text-white" href="{{url('login')}}">Login</a>
           </li>
           @endif
-
         </ul>
       </div>
       <!-- Right elements -->
@@ -108,52 +107,117 @@
 
   <!-- Container -->
   <section class="container">
-  <h1 class="text-center mt-5">New Product Creating</h1>  
+  <a type="button" class="mt-3 btn btn-outline-primary btn-rounded" href="{{url('/newprod')}}" data-mdb-ripple-init  data-mdb-ripple-color="dark">New Product</a>
 
-    <div class="row">
-    <form class="mt-5">
-  <!-- Product Name input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example1" class="form-control" />
-    <label class="form-label" for="form4Example1">Product Name</label>
-  </div>
-
-  <!-- Product Size input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example2" class="form-control" />
-    <label class="form-label" for="form4Example2">Product Size</label>
-  </div>
-
-    <!-- Product Prize input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example3" class="form-control" />
-    <label class="form-label" for="form4Example3">Product Prize</label>
-  </div>
-
-  <!-- Discount Price input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example4" class="form-control" />
-    <label class="form-label" for="form4Example4">Discount</label>
-  </div>
-
-  <!-- Quantity -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example5" class="form-control" />
-    <label class="form-label" for="form4Example5">Quantity</label>
-  </div>
-
-
-  <!-- Product Image -->
-  <label for="form4Example6">Product Image</label>
-  <div class="form-outline mb-4">
-    <input type="file" id="form4Example6" class="form-control" />
-  </div>
-
-  <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
-</form>
-
-    </div>
+  <h1 class="text-center mt-5">Admin List</h1>  
+  <table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th>Discount</th>
+      <th>Qty</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">MAC Book</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">15 inch</p>
+      </td>
+      <td>
+        <span> Price: $ 700.00 </span>
+      </td>
+      <td>20%</td>
+      <td>50 Pcs</td>
+      <td>
+        <a href="{{url('/productedit')}}" type="button" class="btn btn-link btn-sm btn-rounded">Edit</a>
+        <button type="button" class="btn btn-link btn-sm text-danger btn-rounded">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+              class="rounded-circle"
+              alt=""
+              style="width: 45px; height: 45px"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Alex Ray</p>
+            <p class="text-muted mb-0">alex.ray@gmail.com</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">Consultant</p>
+        <p class="text-muted mb-0">Finance</p>
+      </td>
+      <td>
+        <span class="badge badge-primary rounded-pill d-inline"
+              >Onboarding</span
+          >
+      </td>
+      <td>Junior</td>
+      <td>
+        <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                >
+          Edit
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+              class="rounded-circle"
+              alt=""
+              style="width: 45px; height: 45px"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Kate Hunington</p>
+            <p class="text-muted mb-0">kate.hunington@gmail.com</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">Designer</p>
+        <p class="text-muted mb-0">UI/UX</p>
+      </td>
+      <td>
+        <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
+      </td>
+      <td>Senior</td>
+      <td>
+        <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                >
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
   </section> 
 
 <!-- Footer -->

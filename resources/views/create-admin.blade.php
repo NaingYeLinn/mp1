@@ -107,50 +107,32 @@
   <!-- Navbar -->
 
   <!-- Container -->
-  <section class="container">
-  <h1 class="text-center mt-5">New Product Creating</h1>  
+  <section class="container" style="height:600px;">
+  <h1 class="text-center mt-5">New Admin Creating</h1>  
 
     <div class="row">
-    <form class="mt-5">
+    <form class="mt-5" method="post" action="{{url('/admin/create')}}">
+      @csrf
   <!-- Product Name input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form4Example1" class="form-control" />
-    <label class="form-label" for="form4Example1">Product Name</label>
+    <input type="text" id="form4Example1" class="form-control" name="name" />
+    <label class="form-label" for="form4Example1">Admin Name</label>
   </div>
 
   <!-- Product Size input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form4Example2" class="form-control" />
-    <label class="form-label" for="form4Example2">Product Size</label>
+    <input type="text" id="form4Example2" class="form-control" name="email" />
+    <label class="form-label" for="form4Example2">Admin Email</label>
   </div>
 
     <!-- Product Prize input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form4Example3" class="form-control" />
-    <label class="form-label" for="form4Example3">Product Prize</label>
-  </div>
-
-  <!-- Discount Price input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example4" class="form-control" />
-    <label class="form-label" for="form4Example4">Discount</label>
-  </div>
-
-  <!-- Quantity -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example5" class="form-control" />
-    <label class="form-label" for="form4Example5">Quantity</label>
-  </div>
-
-
-  <!-- Product Image -->
-  <label for="form4Example6">Product Image</label>
-  <div class="form-outline mb-4">
-    <input type="file" id="form4Example6" class="form-control" />
+    <input type="password" id="form4Example3" class="form-control" name="password" />
+    <label class="form-label" for="form4Example3">Admin Password</label>
   </div>
 
   <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+  <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
 </form>
 
     </div>
