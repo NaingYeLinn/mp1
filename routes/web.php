@@ -43,10 +43,14 @@ Route::get('/create-admin', function () {
 //admin creation
 Route::post('/admin/create',([App\Http\Controllers\UserController::class,'createAdmin'])   
 );
-//admin list
-Route::get('/admin/list',([App\Http\Controllers\UserController::class,'index'])   
-);
-
+// admin list
+Route::get('/admin/list',([App\Http\Controllers\UserController::class,'index']))->name('admin-list');
+// admin delete
+Route::get('/admin/delete/{id}',([App\Http\Controllers\UserController::class,'delete']));
+//admin edit
+Route::get('/admin/edit/{id}',([App\Http\Controllers\UserController::class,'edit']));
+//admin update
+Route::post('/admin/update/{id}',([App\Http\Controllers\UserController::class,'updateAdmin']));
 
 Auth::routes();
 Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout']);
