@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('discount');
             $table->integer('Qty');
             $table->integer('user_id');
-            $table->integer('color');
+            $table->string('color');
             $table->timestamps();
         });
     }

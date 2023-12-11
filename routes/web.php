@@ -31,9 +31,7 @@ Route::get('/cart', function () {
 Route::get('/newprod', function () {
     return view('new-product');
 })->name('new-product');
-Route::get('/prodls', function () {
-    return view('product-list');
-});
+
 Route::get('/productedit', function () {
     return view('product-edit');
 });
@@ -41,8 +39,7 @@ Route::get('/create-admin', function () {
     return view('create-admin');
 });
 //admin creation
-Route::post('/admin/create',([App\Http\Controllers\UserController::class,'createAdmin'])   
-);
+Route::post('/admin/create',([App\Http\Controllers\UserController::class,'createAdmin']));
 // admin list
 Route::get('/admin/list',([App\Http\Controllers\UserController::class,'index']))->name('admin-list');
 // admin delete
@@ -51,6 +48,13 @@ Route::get('/admin/delete/{id}',([App\Http\Controllers\UserController::class,'de
 Route::get('/admin/edit/{id}',([App\Http\Controllers\UserController::class,'edit']));
 //admin update
 Route::post('/admin/update/{id}',([App\Http\Controllers\UserController::class,'updateAdmin']));
+
+//Product Creation
+Route::post('/product/create',([App\Http\Controllers\ProductController::class,'create']));
+//product List
+Route::get('/prodls',([App\Http\Controllers\ProductController::class,'index']))->name('prodls');
+//product Delete
+Route::get('/product/delete/{id}',([App\Http\Controllers\ProductController::class,'delete']));
 
 Auth::routes();
 Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout']);

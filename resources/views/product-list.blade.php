@@ -18,100 +18,34 @@
     </tr>
   </thead>
   <tbody>
+    @foreach($products as $product)
     <tr>
       <td>
         <div class="d-flex align-items-center">
           <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              src="{{asset('storage/images/products/'.$product->photo)}}"
               alt=""
               style="width: 45px; height: 45px"
               />
           <div class="ms-3">
-            <p class="fw-bold mb-1">MAC Book</p>
+            <p class="fw-bold mb-1">{{$product->product_name}}</p>
           </div>
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">15 inch</p>
+        <p class="fw-normal mb-1">{{$product->size}}</p>
       </td>
       <td>
-        <span> Price: $ 700.00 </span>
+        <span>{{$product->price}}</span>
       </td>
-      <td>20%</td>
-      <td>50 Pcs</td>
+      <td>{{$product->discount}}</td>
+      <td>{{$product->Qty}}</td>
       <td>
         <a href="{{url('/productedit')}}" type="button" class="btn btn-link btn-sm btn-rounded">Edit</a>
-        <button type="button" class="btn btn-link btn-sm text-danger btn-rounded">Delete</button>
+        <a type="button" class="btn btn-link btn-sm text-danger btn-rounded" href="{{url('/product/delete/'.$product->id)}}">Delete</a>
       </td>
     </tr>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-              class="rounded-circle"
-              alt=""
-              style="width: 45px; height: 45px"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">Alex Ray</p>
-            <p class="text-muted mb-0">alex.ray@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">Consultant</p>
-        <p class="text-muted mb-0">Finance</p>
-      </td>
-      <td>
-        <span class="badge badge-primary rounded-pill d-inline"
-              >Onboarding</span
-          >
-      </td>
-      <td>Junior</td>
-      <td>
-        <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark"
-                >
-          Edit
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/7.jpg"
-              class="rounded-circle"
-              alt=""
-              style="width: 45px; height: 45px"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">Kate Hunington</p>
-            <p class="text-muted mb-0">kate.hunington@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">Designer</p>
-        <p class="text-muted mb-0">UI/UX</p>
-      </td>
-      <td>
-        <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark"
-                >
-          Edit
-        </button>
-      </td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
   </section> 
