@@ -41,7 +41,7 @@
       <td>{{$product->discount}}</td>
       <td>{{$product->Qty}}</td>
       <td>
-        <a href="{{url('/productedit')}}" type="button" class="btn btn-link btn-sm btn-rounded">Edit</a>
+        <a href="{{url('/productedit/'.$product->id)}}" type="button" class="btn btn-link btn-sm btn-rounded">Edit</a>
         <a type="button" class="btn btn-link btn-sm text-danger btn-rounded" href="{{url('/product/delete/'.$product->id)}}">Delete</a>
       </td>
     </tr>

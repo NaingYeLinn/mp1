@@ -43,4 +43,36 @@ class ProductController extends Controller
             $product->delete();
         return redirect()->route('prodls');
      }
+     //Product Editing
+     public function edit($id){
+      $product = Product::findorfail($id);
+      return view('product-edit',compact('product'));
+     }
+
+     //product updating
+     public function update(Request $request,$id){
+      //for image updating Checking Statement
+      if(!empty($request->file('new_image'))){
+      $image=$request->file('new_image'); //setting file
+        $filename=uniqid().$image->getClientOriginalName(); //name setting
+
+        Storage::disk('local')->putFileAs('/public/images/products/',$image,$filename); //store new file
+        //to delete photo
+        unlink(storage_path('app/public/images/products/'.$request->old_image));
+      }else{
+         $filename= $request->old_image;
+      }
+      $product = Product::findorfail($id);
+      //for othe data updating
+        $product->user_id= auth()->user()->id;
+        $product->product_name= $request->product_name;
+        $product->size= $request->size;
+        $product->price= $request->price;
+        $product->discount= $request->discount;
+        $product->Qty= $request->Qty;
+        $product->color= $request->color;
+        $product->photo= $filename;
+        $product->save();
+        return redirect()->route('prodls');
+     }
 }

@@ -32,9 +32,9 @@ Route::get('/newprod', function () {
     return view('new-product');
 })->name('new-product');
 
-Route::get('/productedit', function () {
-    return view('product-edit');
-});
+// Route::get('/productedit', function () {
+//     return view('product-edit');
+// });
 Route::get('/create-admin', function () {
     return view('create-admin');
 });
@@ -55,6 +55,10 @@ Route::post('/product/create',([App\Http\Controllers\ProductController::class,'c
 Route::get('/prodls',([App\Http\Controllers\ProductController::class,'index']))->name('prodls');
 //product Delete
 Route::get('/product/delete/{id}',([App\Http\Controllers\ProductController::class,'delete']));
+//product Edit
+Route::get('/productedit/{id}',([App\Http\Controllers\ProductController::class,'edit']));
+//product Update
+Route::post('/product/update/{id}',([App\Http\Controllers\ProductController::class,'update']));
 
 Auth::routes();
 Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout']);
