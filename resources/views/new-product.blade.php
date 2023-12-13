@@ -8,30 +8,46 @@
     <div class="row">
     <form class="mt-5" method="post" action="{{url('/product/create')}}" enctype="multipart/form-data">
     @csrf
+
+    @error('product_name') <!-- Checking and showing validate error -->
+      <span class="text-danger">{{ $message }}</span>
+    @enderror
   <!-- Product Name input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example1" class="form-control" name="product_name" />
     <label class="form-label" for="form4Example1">Product Name</label>
   </div>
 
+  @error('size') <!-- Checking and showing validate error -->
+    <span class="text-danger">{{ $message }}</span>
+  @enderror
   <!-- Product Size input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example2" class="form-control" name="size"/>
     <label class="form-label" for="form4Example2">Product Size</label>
   </div>
 
-    <!-- Product Prize input -->
+  @error('price') <!-- Checking and showing validate error -->
+    <span class="text-danger">{{ $message }}</span>
+  @enderror
+    <!-- Product Price input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example3" class="form-control" name="price"/>
     <label class="form-label" for="form4Example3">Product Price</label>
   </div>
 
+  @error('discount') <!-- Checking and showing validate error -->
+    <span class="text-danger">{{ $message }}</span>
+  @enderror
   <!-- Discount Price input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example4" class="form-control" name="discount" />
     <label class="form-label" for="form4Example4">Discount</label>
   </div>
 
+  @error('Qty') <!-- Checking and showing validate error -->
+    <span class="text-danger">{{ $message }}</span>
+  @enderror
   <!-- Quantity -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example5" class="form-control" name="Qty"/>
@@ -44,7 +60,9 @@
     <label class="form-label" for="form4Example5">Color</label>
   </div>
 
-
+  @error('product_image') <!-- Checking and showing validate error -->
+    <span class="text-danger">{{ $message }}</span>
+  @enderror
   <!-- Product Image -->
   <label for="form4Example6">Product Image</label>
   <div class="form-outline mb-4">

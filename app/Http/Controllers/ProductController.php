@@ -10,12 +10,19 @@ class ProductController extends Controller
 {
     //
     public function create(Request $request){
+      // Checking Validate
+      $validated = $request->validate([ 
+         'product_name' => 'required',
+         'size' => 'required',
+         'price' => 'required',
+         'discount' => 'required',
+         'Qty' => 'required',
+         'product_image' => 'required',
+         ]);
         //photo file saving
         $image=$request->file('product_image'); //setting file
         $filename=uniqid().$image->getClientOriginalName();
-
         Storage::disk('local')->putFileAs('/public/images/products/',$image,$filename);
-
         //product string file
         $product= new Product;
         $product->user_id= auth()->user()->id;
@@ -51,6 +58,16 @@ class ProductController extends Controller
 
      //product updating
      public function update(Request $request,$id){
+       // Checking Validate
+       $validated = $request->validate([ 
+         'product_name' => 'required',
+         'size' => 'required',
+         'price' => 'required',
+         'discount' => 'required',
+         'Qty' => 'required',
+         'color' => 'required',
+         ]);
+
       //for image updating Checking Statement
       if(!empty($request->file('new_image'))){
       $image=$request->file('new_image'); //setting file

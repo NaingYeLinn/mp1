@@ -10,6 +10,12 @@ class UserController extends Controller
 {
     // admin creating list
     public function createAdmin(Request $request){
+        // Checking Validate
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
         //creating new keyword to keep database
         $user = new User;
 
@@ -39,6 +45,12 @@ class UserController extends Controller
     }
     //update admin
     public function updateAdmin(Request $request,$id){
+        // Checking Validate
+        $validated = $request->validate([ 
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
         $user= User::findorfail($id);//how to find id
         $user->name = $request->name; //setting new value
         $user->email = $request->email;

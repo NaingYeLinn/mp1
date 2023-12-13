@@ -10,12 +10,19 @@
     <div class="row">
     <form class="mt-5" method="post" action="{{url('/admin/update/'.$users->id)}}">
       @csrf
+
+  @error('name') <!-- Checking and showing validate error -->
+  <span class="text-danger">{{ $message }}</span>
+  @enderror
   <!-- Product Name input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example1" class="form-control" name="name" value="{{$users->name}}" />
     <label class="form-label" for="form4Example1">Admin Name</label>
   </div>
 
+  @error('email') <!-- Checking and showing validate error -->
+  <span class="text-danger">{{ $message }}</span>
+  @enderror
   <!-- Product Size input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example2" class="form-control" name="email" value="{{$users->email}}" />

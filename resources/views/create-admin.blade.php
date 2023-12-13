@@ -10,18 +10,30 @@
     <div class="row">
     <form class="mt-5" method="post" action="{{url('/admin/create')}}">
       @csrf
-  <!-- Product Name input -->
+  <!-- Checking and showing validate error -->
+  @error('name')
+  <span class="text-danger">{{ $message }}</span>
+  @enderror
+    <!-- Product Name input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example1" class="form-control" name="name" />
     <label class="form-label" for="form4Example1">Admin Name</label>
   </div>
 
+      <!-- Checking and showing validate error -->
+    @error('email')
+    <span class="text-danger">{{ $message }}</span>
+    @enderror
   <!-- Product Size input -->
   <div class="form-outline mb-4">
     <input type="text" id="form4Example2" class="form-control" name="email" />
     <label class="form-label" for="form4Example2">Admin Email</label>
   </div>
 
+  <!-- Checking and showing validate error -->
+  @error('password')
+  <span class="text-danger">{{ $message }}</span>
+  @enderror
     <!-- Product Prize input -->
   <div class="form-outline mb-4">
     <input type="password" id="form4Example3" class="form-control" name="password" />
