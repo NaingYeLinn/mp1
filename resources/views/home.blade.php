@@ -50,7 +50,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{$product->product_name}}</h5>
                   <h5 class="card-title">Price -${{$product->price}}</h5>
-                  <a href="{{url('/cart')}}" class="btn btn-primary">Add to Cart</a>
+                  <a href="{{url('/detail/'.$product->id)}}" class="btn btn-primary">View Detail</a>
                 </div>
               </div>
             </a>

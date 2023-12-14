@@ -12,11 +12,20 @@
         <h6>{{$product->size}}</h6>
         <h2 class="text-warning">Price- ${{$product->price}}</h2>
         <p><span class="text-decoration-line-through">{{$product->discount}}</span></p>
-        <input type="number" min="1" max="{{$product->Qty}}">
 
+        <form action="{{url('/product/cart')}}" method="post">
+          @csrf
+        <input type="hidden" name="product_id" value="{{$product->id}}">
+
+        @error('Qty') <!-- Checking and showing validate error -->
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+        <span>Quality</span> <br>
+        <input type="number" value="1" name="Qty" min="1" max="{{$product->Qty}}">
         <div class="mt-4">
-          <a href="{{url('/cart')}}" class="btn btn-primary">Add to Cart</a>
+          <input type="submit" class="btn btn-primary" value="Add to Cart">
         </div>
+        </form>
       </div>
       <div class="col-md-4 rounded">
         <!-- <p>Delivery</p>
@@ -48,10 +57,6 @@
         </a>
       </div> <!-- End Of TopBrand-1 -->
       @endforeach
-
-      
-
-      
 
       
     </div>

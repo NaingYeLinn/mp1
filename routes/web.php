@@ -29,9 +29,11 @@ Route::get('/detail/{id}',([App\Http\Controllers\HomeController::class,'productD
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/cart', function () {
-    return view('cart');
-});
+// Route::get('/cart', function () {
+//     return view('cart');
+// });
+Route::get('/cart',([App\Http\Controllers\HomeController::class,'cart']))->name('cart'); //cart
+
 Route::get('/newprod', function () {
     return view('new-product');
 })->name('new-product');
@@ -63,6 +65,10 @@ Route::get('/product/delete/{id}',([App\Http\Controllers\ProductController::clas
 Route::get('/productedit/{id}',([App\Http\Controllers\ProductController::class,'edit']));
 //product Update
 Route::post('/product/update/{id}',([App\Http\Controllers\ProductController::class,'update']));
+
+//card Session
+Route::post('/product/cart/',([App\Http\Controllers\HomeController::class,'addToCart']));
+
 
 Auth::routes();
 Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout']);
