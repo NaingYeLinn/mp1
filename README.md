@@ -55,8 +55,11 @@ And then you can go to link.
 
 #### The link are following
 link 1. localhost/mp1/public/register      (to Register)
+
 link 2. localhost/mp1/public/newprod       (to create new Poduct)
+
 link 3. localhost/mp1/public/login          (to login)
+
 link 4. localhost/mp1/public/create-admin   (to create Admin)
 
 
