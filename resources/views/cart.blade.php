@@ -2,6 +2,8 @@
 @section('content')
     <!-- Cart Body -->
     <section class="container mt-5 mb-5">
+    <form action="{{url('/checkout')}}" method="post">
+        @csrf
         <div class="row"> <!-- row start -->
             <h3 class="text-start">Your Cart</h3>
             
@@ -21,7 +23,7 @@
                             <h5>Price- ${{$cart->price}}</h5>
                             <!-- setting for color -->
                             <p>Color</p>
-                            <span style="background-color:{{$cart->color}}; padding:2px; color:{{$cart->color}}; ">Color</span>
+                            <input type="color" value="{{$cart->color}}">
                         </div>
                         <!-- Amount -->
                         <div class="col-md-3 mt-5">
@@ -29,26 +31,31 @@
                         </div>
                         <!-- price Showing -->
                         <div class="col-md-2">
-                            <p class="mt-5">Price- ${{$cart->price}}<i class="fas fa-trash-alt text-danger"></i> </p>  
+                            <p class="mt-5">Price- ${{$cart->Qty*$cart->price}}<i class="fas fa-trash-alt text-danger"></i> </p>  
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End Card -->
+            <input type="hidden" name="product_id[]" value="{{$cart->id}}">
+            <input type="hidden" name="Qty[]" value="{{$cart->Qty}}">
+            <input type="hidden" name="price[]" value="{{$cart->Qty*$cart->price}}">
             @endforeach
             <!-- looping End (foreach loop)-->
         </div> <!-- row End -->
         
-        <!-- Total Amount -->
-        <div class="row mt-4">
+
+        <!-- Total Amount Comment-->
+        <!-- <div class="row mt-4">
             <div class="col-md-6 text-start"><h5>Subtotal</h5></div>
             <div class="col-md-6 text-end text-warning"><p>$2000.00</p></div>
-        </div>
+        </div> -->
        
         <!-- Button -->
         <div class="d-grid gap-2 mt-3">
-            <button class="btn btn-info" type="button">Checkout</button>
-          </div>
+            <button class="btn btn-info" type="submit">Checkout</button>
+        </div>
+    </form>
 
     </section>
     @endsection

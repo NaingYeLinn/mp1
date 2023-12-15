@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -66,6 +67,12 @@ class HomeController extends Controller
                 ->get();
                 
                 return view('cart',compact('carts'));
+    }
+    //checkOut session
+    public function checkout(Request $request){
+        for($i=1;$i<count($request->product_id);$i++){
+
+        }
 
     }
 }

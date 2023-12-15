@@ -68,7 +68,8 @@ Route::post('/product/update/{id}',([App\Http\Controllers\ProductController::cla
 
 //card Session
 Route::post('/product/cart/',([App\Http\Controllers\HomeController::class,'addToCart']));
-
+//CheckOut Session
+Route::post('/checkout',([App\Http\Controllers\HomeController::class,'checkout']));
 
 Auth::routes();
 Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout']);
