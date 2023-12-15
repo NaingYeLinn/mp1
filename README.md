@@ -10,26 +10,23 @@ Note: the following guide is for linux user. My project use laravel framewrok. Y
 Firstly, Go to the project folder. Open the terminal there. and type the following command.
 ### 1. Cloning
 ```bash
-  git clone https://github.com/NaingYeLinn/mp1.git
+git clone https://github.com/NaingYeLinn/mp1.git
 ```
 ### 2. Composer install and update
 Enter the project directory and open terminal in it. You need to update and composer. Type the following command each by each.
 ```bash
-  composer install
+composer install
 ```
 ```bash
-  composer update
+composer update
 ```
 ### 3. Create .env file
 create .env file for database. Type the following command in your terminal.
 
 ```bash
-  cp .env.example .env
+cp .env.example .env
 ```
-And then remove .env.example file by following command.
-```bash
-  rm .env.example
-```
+
 ### 4. Prepare your database
 After that, you should Create your database in "localhost/phpmyadmin/".
 And then change the name of your database name in ".env" by using text editor 
@@ -37,36 +34,40 @@ And then change the name of your database name in ".env" by using text editor
 
 ### 5. Generate the Key of laravel
 ```bash
-  php artisan key:generate
+php artisan key:generate
+```
+Link the storage by following command
+```bash
+php artisan storage:link
 ```
 ### 6. Migration
 Migrate your data into your database by following command.
 ```bash
-  php artisan migrate
+php artisan migrate
 ```
 ### 7. Finally run the project
 You can rung service.
 ```bash
-  php artisan serve
+php artisan serve
 ```
 And then you can go to link.
 
 
 #### The link are following
-link 1. localhost/mp1/public/register
-
-
-link2. localhost/mp1/public/login
+link 1. localhost/mp1/public/register      (to Register)
+link 2. localhost/mp1/public/newprod       (to create new Poduct)
+link 3. localhost/mp1/public/login          (to login)
+link 4. localhost/mp1/public/create-admin   (to create Admin)
 
 
 
 ## 🔗 You cam need the following command to run my project
 
 ```bash
-  npm install
+npm install
 ```
 ```bash
-  npm run dev
+npm run dev
 ```
 
 
