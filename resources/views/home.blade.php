@@ -38,7 +38,7 @@
         <div class="row mt-4">
           <h3 class="text-center">BRANDED</h3> <!-- TitleOf Item -->
           @foreach($products as $product)
-          <div class="col-md-3">  <!-- TopBrand-1 -->
+          <div class="col-md-3 mt-3 mb-3">  <!-- TopBrand-1 -->
             <a href="{{url('/detail/'.$product->id)}}">
               <div class="card shadow text-center">
                 <div class="bg-image hover-overlay ripple" >

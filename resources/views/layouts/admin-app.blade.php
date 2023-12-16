@@ -58,6 +58,9 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="{{url('/prodls')}}">Product</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{url('/admin/list')}}">Admin</a>
+          </li>
         </ul>
         <!-- Left links -->
       </div>

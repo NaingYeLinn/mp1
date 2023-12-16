@@ -21,7 +21,7 @@
                         <div class="col-md-4 mt-3">
                             <h5 class="text-primary">{{$cart->product_name}}</h5>
                             <h5>Price- ${{$cart->price}}</h5>
-                            <!-- setting for color -->
+                           <!-- setting for color -->
                             <p>Color</p>
                             <input type="color" value="{{$cart->color}}">
                         </div>
@@ -30,8 +30,8 @@
                             <p>{{$cart->Qty}}</p>
                         </div>
                         <!-- price Showing -->
-                        <div class="col-md-2">
-                            <p class="mt-5">Price- ${{$cart->Qty*$cart->price}}<i class="fas fa-trash-alt text-danger"></i> </p>  
+                        <div class="col-md-2 mt-5">
+                            <span class="mt-5">Price- ${{$cart->Qty*$cart->price}}</span> <span><i class="fas fa-trash-alt text-danger"></i> </span>  
                         </div>
                     </div>
                 </div>

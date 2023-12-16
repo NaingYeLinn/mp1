@@ -54,22 +54,32 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.6265806645124!2d96.16912009033683!3d16.81084118056601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ecb6e32dddc5%3A0x4ada44a13abf5acf!2sOcean%20Super%20Center!5e0!3m2!1sen!2smm!4v1682671570737!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="col-md-6">
-                <form class="mt-5">
+                <form class="mt-5" method="post" action="{{url('/contact-us')}}">
+                    @csrf
                     <!-- Name input -->
+                    @error('name') <!-- Checking and showing validate error -->
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-outline mb-4">
-                      <input type="text" id="form4Example1" class="form-control" style="border:1px solid grey" />
+                      <input type="text" name="name" id="form4Example1" class="form-control" style="border:1px solid grey" />
                       <label class="form-label" for="form4Example1">Name</label>
                     </div>
                   
                     <!-- Email input -->
+                    @error('email') <!-- Checking and showing validate error -->
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <div class="form-outline mb-4">
-                      <input type="email" id="form4Example2" class="form-control" style="border:1px solid grey" />
+                      <input type="email" name="email" id="form4Example2" class="form-control" style="border:1px solid grey" />
                       <label class="form-label" for="form4Example2">Email address</label>
                     </div>
-                  
+                    
+                    @error('message') <!-- Checking and showing validate error -->
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <!-- Message input -->
                     <div class="form-outline mb-4">
-                      <textarea class="form-control" id="form4Example3" rows="4" style="border:1px solid grey"></textarea>
+                      <textarea class="form-control" name="message" id="form4Example3" rows="4" style="border:1px solid grey"></textarea>
                       <label class="form-label" for="form4Example3">Message</label>
                     </div>
                   

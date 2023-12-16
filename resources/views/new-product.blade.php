@@ -1,6 +1,13 @@
 @extends('layouts.admin-app')
 @section('content')
 
+<!-- Auth and Super Admin Checking -->
+  @if(Session::has('superadmin-error'))
+    <div class="alert-danger">
+      {{Session::get('superadmin-error')}}
+    </div>
+  @endif
+
   <!-- Container -->
   <section class="container">
   <h1 class="text-center mt-5">New Product Creating</h1>  

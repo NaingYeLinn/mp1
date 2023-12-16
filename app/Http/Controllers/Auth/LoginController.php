@@ -27,6 +27,9 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/newprod';
+
+    
+
     // protected function autenticated(Request $request,$user){
     //     return redirect()->route('prodls')
     // }

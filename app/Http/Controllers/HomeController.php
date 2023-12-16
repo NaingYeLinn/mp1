@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Contact;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -70,9 +71,35 @@ class HomeController extends Controller
     }
     //checkOut session
     public function checkout(Request $request){
-        for($i=1;$i<count($request->product_id);$i++){
-
+        for($i=0;$i<count($request->product_id);$i++){
+            $order = new Order;
+            $order->user_id=auth()->user()->id;
+            $order->product_id=$request->product_id[$i];
+            $order->Qty=$request->Qty[$i];
+            $order->price=$request->price[$i];
+            $order->orderId=time();
+            $order->save();
+            
+            Cart::where('product_id','=',$request->product_id[$i])->where('user_id', '=',auth()->user()->id)->delete();
+            
         }
+        return redirect()->route('home');
+    }
 
+    //contact Us session
+    public function contactUs(Request $request){
+        //Checking Validate
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+
+        $contact=new Contact;
+        $contact->name=$request->name;
+        $contact->email=$request->email;
+        $contact->message=$request->message;
+        $contact->save();
+        return redirect()->route('home');
     }
 }
