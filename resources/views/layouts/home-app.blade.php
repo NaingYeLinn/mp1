@@ -48,7 +48,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Navbar brand -->
         <a class="navbar-brand mt-2 mt-lg-0" href="{{url('/')}}">
-     <span class="text-white">Future Online Shop  <i class="fas fa-shopping-cart"></i></span>
+     <span class="text-white">Niko Ecom<i class="fas fa-shopping-cart"></i></span>
         </a>
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
