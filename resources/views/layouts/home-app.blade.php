@@ -88,20 +88,23 @@
 
         <!-- login Check -->
 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              @if(auth::check()) <!-- if login -->
-          <li class="nav-item">
-            <a class="nav-link text-white" href="{{url('logout')}}">logout</a>
-          </li>
-          @else
-          <li class="nav-item">
-            <a class="nav-link text-white" href="{{url('register')}}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="{{url('login')}}">Login</a>
-          </li>
-          @endif
-        </ul>
+             <li class="nav-item">
+              <span class="nav-link text-warning">{{auth()->user()->name}}</span>
+             </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{{url('logout')}}">logout</a>
+            </li>
+            @else
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{{url('register')}}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{{url('login')}}">Login</a>
+            </li>
+            @endif
+          </ul>
 
         
       </div>
@@ -186,29 +189,6 @@
   </div>
   <!-- Copyright -->
 </footer>
-
-
-
-<!-- Start Modal -->
-
-<!-- <button
-  type="button"
-  class="btn btn-primary"
-  data-mdb-toggle="modal"
-  data-mdb-target="#exampleModal"
-  data-mdb-whatever="@fat"
->
-  Open modal for @fat
-</button>
-<button
-  type="button"
-  class="btn btn-primary"
-  data-mdb-toggle="modal"
-  data-mdb-target="#exampleModal"
-  data-mdb-whatever="@getbootstrap"
->
-  Open modal for @getbootstrap
-</button> -->
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
